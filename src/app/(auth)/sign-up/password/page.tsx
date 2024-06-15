@@ -8,8 +8,9 @@ export default function enterPasswordPage() {
   // getting data from query
   const search_params = useSearchParams()
   const email = search_params.get("email")
-  const firstName = search_params.get("firstName")
-  const lastName = search_params.get("lastName")
+  const first_name = search_params.get("firstName")
+  const last_name = search_params.get("lastName")
+  const username = search_params.get("username")
 
   // localstorage items
   const handleRemoveItemFromLocalStorage = () => {

@@ -1,13 +1,17 @@
 "use client"
 import React, { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link'
 
 export default function infoPage() {
   const [email, setEmail] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
+  const [username, setUsername] = useState("")
+
 
   useEffect(() => {
+    setUsername(uuidv4())
     const retrieve_email = localStorage.getItem("email")
     const retrieve_first_name = localStorage.getItem("firstName")
     const retrieve_last_name = localStorage.getItem("lastName")
@@ -48,11 +52,10 @@ export default function infoPage() {
             </div>
             <p>Email</p>
             <input type="text" required={true} value={email} className='sign-up-input' onChange={(e) => setEmail(e.target.value)} />
-            <Link href={email && firstName && lastName != "" ? `/sign-up/password?email=${email}&firstName=${firstName}&lastName=${lastName}` : "#"}>
+            <Link href={email && firstName && lastName != "" ? `/sign-up/password?username=${username}&email=${email}&firstName=${firstName}&lastName=${lastName}` : "#"}>
               <button className='next-sign-u-p-btn' onClick={handleSaveItems}>Next</button>
             </Link>
           </div>
-
         </div>
       </section>
     </div>
