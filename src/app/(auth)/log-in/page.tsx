@@ -1,10 +1,21 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import Loading from '@/app/components/Loading'
 
 
 export default function logInPage() {
+    const search_params = useSearchParams()
+    const useremail = search_params.get("useremail")
+    const ref = useRef<HTMLInputElement>(null)
+
+
+    useEffect(() =>{
+        if(ref.current){
+            ref.current.value = useremail || ""
+        }
+    }, [useremail])
 
 
     return (
@@ -28,7 +39,7 @@ export default function logInPage() {
                     <div className="right-box">
                         <form>
                             <p>Email</p>
-                            <input type="text" className='input' />
+                            <input type="text" ref={ref} className='input' />
                             <p>Password</p>
                             <input type="password" className='input' />
                             <button type='submit' className='login-btn' >Log in</button>

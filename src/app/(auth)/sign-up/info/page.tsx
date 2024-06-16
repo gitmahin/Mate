@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { z } from "zod"
 import { useRouter } from 'next/navigation';
+import { elementAnimate } from '@/utils/elementAnimate';
 
 const first_name_z_schema = z.string()
 const last_name_z_schema = z.string().regex(/^[a-zA-Z\-]+$/)
@@ -24,6 +25,7 @@ export default function infoPage() {
 
 
   useEffect(() => {
+    elementAnimate(".hide-element", "visible-element")
     setUsername(uuidv4())
     const retrieve_email = localStorage.getItem("email")
     const retrieve_first_name = localStorage.getItem("firstName")
@@ -59,7 +61,8 @@ export default function infoPage() {
   }
 
   return (
-    <div>
+    <>
+    <div className='sign-info-section hide-element animate-auth-transition'>
       <section className="sign-up-email-section">
         <h1 className='signup-heading' >Enter your email</h1>
         <div className="enter-email-container">
@@ -90,6 +93,7 @@ export default function infoPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
 

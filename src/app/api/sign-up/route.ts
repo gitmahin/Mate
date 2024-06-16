@@ -1,6 +1,7 @@
 import connDb from "@/lib/conndb";
 import user_model from "@/dataModels/user_model";
 import bcrypt from "bcryptjs"
+import { sendVerificationEmail } from "@/utils/send_verification_email";
 
 
 export async function POST(request:Request) {
@@ -23,6 +24,8 @@ export async function POST(request:Request) {
             const created_at = new Date()
             created_at.toLocaleDateString()
 
+            const verify_code = Math.floor(100000 + Math.random() * 900000).toString()
+
             const new_user = new user_model({
                 first_name,
                 last_name,
@@ -30,15 +33,25 @@ export async function POST(request:Request) {
                 email,
                 password: hashed_password,
                 created_at,
+                verify_code,
                 verify_code_expiry: new_date
             })
 
             await new_user.save()
+            const send_verify_email = await sendVerificationEmail(email, "Verification email - Mate", username, verify_code)
 
-            return Response.json({message: "User registered successfully", success: true}, {status: 200})
+            if(!send_verify_email.success){
+                return Response.json({
+                    success: false,
+                    message: send_verify_email.message
+                }, {status: 500})
+            }
+
+            return Response.json({message: "User registered successfully", success: true}, {status: 201})
+
 
         }
     } catch (error) {
-        return Response.json({error: "Error in signup", success: false}, {status: 500})
+        return Response.json({error: "Error in signup", success: false}, {status: 503})
     }
 }

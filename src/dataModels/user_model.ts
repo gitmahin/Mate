@@ -8,8 +8,8 @@ export interface User extends Document{
     email: string,
     password: string,
     created_at: string,
-    is_verified: boolean,
     verify_code: string,
+    is_verified: boolean,
     verify_code_expiry: Date
 
 }
@@ -44,6 +44,10 @@ const user_schema: Schema<User> = new Schema({
     created_at: {
         type: String,
         required: [true, "Account creation date is required"]
+    },
+    verify_code:{
+        type: String,
+        required: [true, "Verify code is required"]
     },
     is_verified:{
         type: Boolean,

@@ -2,18 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
   background-color: #0B0007;
-  
+
 }
 
-.log-in-container{
+.log-in-container {
   width: 100%;
   height: fit-content;
   padding: 50px 0px;
@@ -28,13 +29,13 @@ body{
 }
 
 
-.left-container{
+.left-container {
   width: 500px;
   height: 100%;
   color: white;
 }
 
-.logo{
+.logo {
   width: 282px;
   height: 77px;
   object-fit: contain;
@@ -44,20 +45,20 @@ body{
   background-color: transparent;
 }
 
-.left-container p{
+.left-container p {
   font-size: 13px;
   user-select: none;
   letter-spacing: 2px;
 }
 
 
-.left-container h1{
+.left-container h1 {
   font-size: 40px;
   font-weight: 600;
   margin-top: 15px;
 }
 
-.right-container{
+.right-container {
   width: 500px;
   height: fit-content;
   color: #ffffff;
@@ -67,16 +68,16 @@ body{
   position: relative;
 }
 
-.right-container form p{
+.right-container form p {
   color: #c8c8c8;
 }
 
-.right-container .right-box{
+.right-container .right-box {
   width: 408px;
   background-color: transparent;
 }
 
-.right-container .input{
+.right-container .input {
   width: 100%;
   height: 55px;
   border-radius: 10px;
@@ -87,13 +88,13 @@ body{
   margin-top: 5px;
 }
 
-.right-container .input:focus{
+.right-container .input:focus {
   outline: 2px solid #EC008C;
   outline-offset: 3px;
 }
 
 
-.login-btn{
+.login-btn {
   width: 100%;
   height: 55px;
   background-color: #7E0581;
@@ -101,11 +102,11 @@ body{
   border-radius: 10px;
 }
 
-.login-btn:active{
+.login-btn:active {
   background-color: #700572;
 }
 
-.left-line{
+.left-line {
   width: 1px;
   height: 420px;
   background: linear-gradient(to top, #FFFFFF, #EC008C);
@@ -115,7 +116,7 @@ body{
   user-select: none;
 }
 
-.right-line{
+.right-line {
   width: 1px;
   height: 420px;
   background: linear-gradient(to bottom, #FFFFFF, #EC008C);
@@ -125,7 +126,7 @@ body{
   user-select: none;
 }
 
-.plus-icon1{
+.plus-icon1 {
   font-size: 25px;
   color: #EC008C;
   position: absolute;
@@ -134,7 +135,7 @@ body{
   background-color: transparent;
 }
 
-.plus-icon2{
+.plus-icon2 {
   font-size: 25px;
   color: #EC008C;
   position: absolute;
@@ -143,7 +144,7 @@ body{
   background-color: transparent;
 }
 
-.plus-icon3{
+.plus-icon3 {
   font-size: 25px;
   color: #EC008C;
   position: absolute;
@@ -152,7 +153,7 @@ body{
   background-color: transparent;
 }
 
-.plus-icon4{
+.plus-icon4 {
   font-size: 25px;
   color: #EC008C;
   position: absolute;
@@ -161,7 +162,7 @@ body{
   background-color: transparent;
 }
 
-.create-account-btn{
+.create-account-btn {
   position: absolute;
   bottom: 20px;
   background-color: red;
@@ -177,11 +178,11 @@ body{
   font-weight: 600;
 }
 
-.create-account-btn:hover{
+.create-account-btn:hover {
   box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.516);
 }
 
-.sign-up-section{
+.sign-up-section {
   width: 100%;
   height: fit-content;
   display: flex;
@@ -190,7 +191,7 @@ body{
   margin-top: 80px;
 }
 
-.left-signup-container{
+.left-signup-container {
   width: fit-content;
   height: 100%;
   display: flex;
@@ -198,7 +199,7 @@ body{
   align-items: center;
 }
 
-.signup-meta-box{
+.signup-meta-box {
   width: 500px;
   height: 500px;
   border: none !important;
@@ -207,24 +208,24 @@ body{
   justify-content: center;
   align-items: center;
   color: white;
-  background: linear-gradient(to bottom, #ec008e1f , #dd00ff29);
+  background: linear-gradient(to bottom, #ec008e1f, #dd00ff29);
   box-shadow: 0px 12px 80px #dd00ff26;
 
 }
 
-.right-signup-container{
+.right-signup-container {
   width: 400px;
   height: 100%;
 
 }
 
-.middle-signup-meta-box{
+.middle-signup-meta-box {
   width: fit-content;
   background-color: transparent;
   height: fit-content;
 }
 
-.middle-signup-meta-box p{
+.middle-signup-meta-box p {
   font-size: 13px;
   user-select: none;
   letter-spacing: 2px;
@@ -232,7 +233,7 @@ body{
   user-select: none;
 }
 
-.middle-signup-meta-box h1{
+.middle-signup-meta-box h1 {
   background-color: transparent;
   font-size: 40px;
   font-weight: 600;
@@ -243,13 +244,13 @@ body{
 }
 
 
-.sign-up-email-section{
+.sign-up-email-section {
   width: 100%;
   height: 100%;
 }
 
-.sign-up-email-section h1{
-  color:  white;
+.sign-up-email-section h1 {
+  color: white;
   font-size: 40px;
   background-image: linear-gradient(95deg, #EC008C, #BB0DC0);
   background-size: 100%;
@@ -259,19 +260,19 @@ body{
 
 }
 
-.sign-up-email-section .enter-email-container{
+.sign-up-email-section .enter-email-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.s-e-c-box{
+.s-e-c-box {
   width: 100%;
   height: fit-content;
   margin-top: 100px;
 }
 
-.s-e-c-box p{
+.s-e-c-box p {
   color: #c8c8c8;
 }
 
@@ -287,15 +288,15 @@ body{
 
 }
 
-.s-e-c-box input:focus{
+.s-e-c-box input:focus {
   border-top: 1px solid #ec008e;
   border-bottom: 1px solid #ec008e;
 }
 
-.next-sign-u-p-btn{
+.next-sign-u-p-btn {
   width: 100%;
   height: 55px;
-  background: linear-gradient(to right, #9162F4 , #BB0DC0);
+  background: linear-gradient(to right, #9162F4, #BB0DC0);
   border-radius: 10px;
   font-size: 20px;
   font-weight: 600;
@@ -303,18 +304,18 @@ body{
   margin-top: 20px;
 }
 
-.name-field{
+.name-field {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
 }
 
-.password-section{
+.password-section {
   position: relative;
 }
 
-.back-btn{
+.back-btn {
   width: fit-content;
   height: fit-content;
   position: absolute;
@@ -328,29 +329,30 @@ body{
   transform: translateX(0px);
 }
 
-.back-btn:hover{
+.back-btn:hover {
   transform: translateX(-3px);
 }
 
-.back-btn img{
+.back-btn img {
   width: 25px;
   height: 25px;
   object-fit: contain;
 
 }
 
-.i_signup{
+.i_signup {
   position: relative;
 }
 
-.error{
-  color:  red !important;
+.error {
+  color: red !important;
   position: absolute;
   bottom: -1px;
+  left: 0;
   font-size: 14px;
 }
 
-.loader-wrap{
+.loader-wrap {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -364,7 +366,7 @@ body{
   overflow: hidden;
 }
 
-.loader{
+.loader {
   background-color: transparent;
   display: flex;
   justify-content: center;
@@ -372,7 +374,108 @@ body{
 }
 
 
-.loader-icon{
+.loader-icon {
   width: 50px;
   background-color: transparent;
+}
+
+
+.confirm-pass-container {
+  position: relative;
+}
+
+.confirm-pass-container span {
+  width: fit-content;
+}
+
+
+/* animate auth element starting line ------ */
+
+.animate-auth-transition {
+  transition: .6s;
+}
+
+.hide-element {
+  opacity: 0;
+  transform: translateX(6vh);
+  filter: blur(2px);
+}
+
+.visible-element {
+  opacity: 1;
+  transform: translateX(0vh);
+  filter: blur(0px);
+}
+
+/* animate auth element ending line ----- */
+
+
+.gradient_name {
+  background-image: linear-gradient(95deg, #f74aee, #bb85f0);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+  font-size: 50px;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: animateName 1s linear forwards;
+}
+
+@keyframes animateName {
+  from{
+    opacity: 0%;
+  }to{
+    opacity: 100%;
+  }
+}
+
+.second-p-animate{
+  animation: animateSecondp 1.5s linear forwards;
+}
+
+@keyframes animateSecondp {
+  from{
+    opacity: 0%;
+  }to{
+    opacity: 100%;
+  }
+}
+
+.third-p-animate{
+  animation: animateThirdp 2s linear forwards;
+}
+
+@keyframes animateThirdp {
+  from{
+    opacity: 0%;
+  }to{
+    opacity: 100%;
+  }
+}
+
+
+.welcome-section{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.go-to-login-btn{
+  padding: 8px 40px;
+  background-color: #00ff9d25;
+  border-radius: 8px;
+  margin-top: 30px;
+  font-weight: 600;
+  color: #00ff9d ;
+}
+
+.go-to-login-btn:hover{
+  box-shadow: 0px 10px 30px #00ff9d3d;
+}
+
+.go-to-login-btn:active{
+  box-shadow: 0px 10px 20px #00ff9d3d;
+  
 }
