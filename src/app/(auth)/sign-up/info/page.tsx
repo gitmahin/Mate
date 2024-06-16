@@ -1,13 +1,26 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
-import Link from 'next/link'
+import { z } from "zod"
+import { useRouter } from 'next/navigation';
+
+const first_name_z_schema = z.string()
+const last_name_z_schema = z.string().regex(/^[a-zA-Z\-]+$/)
+const email_z_schema = z.string().email()
+
+interface Errors {
+  firstName: string,
+  lastName: string,
+  email: string
+}
 
 export default function infoPage() {
   const [email, setEmail] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [username, setUsername] = useState("")
+  const [errors, setErrors] = useState<Errors>({ firstName: "", lastName: "", email: "" });
+  const router = useRouter()
 
 
   useEffect(() => {
@@ -23,11 +36,25 @@ export default function infoPage() {
   }, [])
 
   const handleSaveItems = () => {
+    const first_name_validation = first_name_z_schema.safeParse(firstName)
+    const last_name_validation = last_name_z_schema.safeParse(lastName)
+    const email_validation = email_z_schema.safeParse(email)
 
     if (email && firstName && lastName != "") {
-      localStorage.setItem("email", email)
-      localStorage.setItem("firstName", firstName)
-      localStorage.setItem("lastName", lastName)
+      if (!first_name_validation.success || !last_name_validation.success || !email_validation.success) {
+        setErrors({
+          firstName: first_name_validation.success ? "" : "Invalid name",
+          lastName: last_name_validation.success ? "" : "Invalid name",
+          email: email_validation.success ? "" : "Invalid email",
+        })
+      } else {
+        localStorage.setItem("email", email)
+        localStorage.setItem("firstName", firstName)
+        localStorage.setItem("lastName", lastName)
+        console.log("success")
+        router.push(`/sign-up/password?username=${username}&email=${email}&firstName=${firstName}&lastName=${lastName}`)
+      }
+
     }
   }
 
@@ -39,22 +66,26 @@ export default function infoPage() {
 
           <div className="s-e-c-box">
             <div className="name-field">
-              <div className="firstName">
+              <div className="firstName i_signup">
                 <p>First name</p>
                 <input type="text" required value={firstName} className='sign-up-name-input' onChange={(e) => setFirstName(e.target.value)} />
+                {errors.firstName && <p className='error'>{errors.firstName}</p>}
               </div>
 
-              <div className="lastname">
+              <div className="lastname i_signup">
                 <p>Last name</p>
                 <input type="text" required value={lastName} className='sign-up-name-input' onChange={(e) => setLastName(e.target.value)} />
-
+                {errors.lastName && <p className='error'>{errors.lastName}</p>}
               </div>
             </div>
-            <p>Email</p>
-            <input type="text" required={true} value={email} className='sign-up-input' onChange={(e) => setEmail(e.target.value)} />
-            <Link href={email && firstName && lastName != "" ? `/sign-up/password?username=${username}&email=${email}&firstName=${firstName}&lastName=${lastName}` : "#"}>
-              <button className='next-sign-u-p-btn' onClick={handleSaveItems}>Next</button>
-            </Link>
+            <div className="email i_signup">
+              <p>Email</p>
+              <input type="text" required={true} value={email} className='sign-up-input' onChange={(e) => setEmail(e.target.value)} />
+              {errors.email && <p className='error'>{errors.email}</p>}
+
+            </div>
+            <button className='next-sign-u-p-btn' onClick={handleSaveItems}>Next</button>
+            
           </div>
         </div>
       </section>

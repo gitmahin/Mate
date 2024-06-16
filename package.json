@@ -9,17 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.6.0",
+    "axios": "^1.7.2",
     "bcryptjs": "^2.4.3",
     "mongoose": "^8.4.1",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.52.0",
     "react-hot-toast": "^2.4.1",
     "react-toastify": "^10.0.5",
+    "resolver": "^0.1.12",
     "uuid": "^10.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

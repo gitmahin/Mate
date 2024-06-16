@@ -21,7 +21,9 @@ const user_schema: Schema<User> = new Schema({
         required: [true, "First name is required"]
     },
     last_name:{
-        type: String
+        type: String,
+        match: [/^[a-zA-Z\-]+$/, "Invalid name"],
+        required: [true, "Last name is required"]
     },
     username:{
         type: String,
