@@ -54,7 +54,7 @@ export default function enterPasswordPage() {
       })
       toast.success("Account created successfully")
       handleRemoveItemFromLocalStorage()
-      router.push(`/sign-up/verify-email/${username}`)
+      router.push(`/sign-up/verify-email/${username}?email=${email}`)
     } catch (error) {
       const axios_error = error as AxiosError<api_response>
       if (axios_error.response) {

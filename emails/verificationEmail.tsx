@@ -32,7 +32,7 @@ export default function verificationEmail({username, email, verify_code}: verifi
                 </Row>
                 <Row>
                     <Text>
-                        Go to the link <Link href={`http://localhost:3000/sign-up/verify-email/${username}`}>http://localhost:3000/sign-up/verify-email/{username}</Link> and paste the code
+                        Go to the link <Link href={`http://localhost:3000/sign-up/verify-email/${username}?email=${email}`}>Go the the verify page</Link> and paste the code
                     </Text>
                 </Row>
             </Section>
