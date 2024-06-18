@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "./styles/header-styles.css"
 import "./styles/admin-panel-styles.css"
+import "./styles/bottom-menu.css"
 import { Toaster } from 'react-hot-toast';
 import Script from 'next/script';
 

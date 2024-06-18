@@ -1,25 +1,30 @@
 "use client"
-import React, { useCallback, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation'
+import { useCallback } from 'react';
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import { useRouter } from 'next/navigation'
+
 
 const Header = () => {
+    const pathname = usePathname()
+
     const router = useRouter()
-
-    const loginStatus = useCallback( async () =>{
-       try {
-         await axios.post('/api/login-status')
-       } catch (error) {
-        toast.error("Session expired")
-        router.push("/log-in")
-       }
+    const loginStatus = useCallback(async () => {
+        try {
+            await axios.post('/api/login-status')
+        } catch (error) {
+            toast.error("Session expired")
+            router.push("/log-in")
+        }
     }, [])
 
-    useEffect(() =>{
+    useEffect(() => {
         loginStatus()
-    }, [])
+    }, [loginStatus])
+
 
     return (
         <>
@@ -31,8 +36,8 @@ const Header = () => {
                     <div className="menu">
                         <div className="main-menu">
                             <ul>
-                                <Link href={"#"}>
-                                    <li>
+                                <Link href={"/"}>
+                                    <li className={pathname === "/" ? "active-main-menu-item" : ""}>
                                         <lord-icon
                                             src="https://cdn.lordicon.com/wmwqvixz.json"
                                             trigger="hover"
@@ -43,8 +48,8 @@ const Header = () => {
                                         </lord-icon>
                                     </li>
                                 </Link>
-                                <Link href={"#"}>
-                                    <li>
+                                <Link href={"/shares-feed"}>
+                                    <li className={pathname === "/shares-feed" ? "active-main-menu-item" : ""}>
                                         <lord-icon
                                             src="https://cdn.lordicon.com/depeqmsz.json"
                                             trigger="hover"
@@ -54,8 +59,8 @@ const Header = () => {
                                         </lord-icon>
                                     </li>
                                 </Link>
-                                <Link href={"#"}>
-                                    <li>
+                                <Link href={"/videos"}>
+                                    <li className={pathname === "/videos" ? "active-main-menu-item" : ""}>
                                         <lord-icon
                                             src="https://cdn.lordicon.com/wgdqrxxf.json"
                                             trigger="hover"
@@ -66,7 +71,7 @@ const Header = () => {
                                     </li>
                                 </Link>
                                 <Link href={"#"}>
-                                    <li>
+                                    <li className={pathname === "#" ? "active-main-menu-item" : ""}>
                                         <lord-icon
                                             src="https://cdn.lordicon.com/lznlxwtc.json"
                                             trigger="hover"

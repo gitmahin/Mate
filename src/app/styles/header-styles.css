@@ -11,6 +11,7 @@ header{
     top: 0;
     left: 0;
     z-index: 9999999999999999;
+    overflow: hidden;
 }
 
 .header-container{
@@ -55,6 +56,10 @@ header{
 
 .menu .main-menu ul li:hover{
     background-color: #ec008e50;
+}
+
+.active-main-menu-item{
+    background-color: #ff0199 !important;
 }
 
 /* primary list and button color #ec008e3d */
