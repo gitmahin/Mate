@@ -12,7 +12,7 @@ import Loading from '@/app/components/Loading'
 import { api_response } from '@/response/api_response'
 import { elementAnimate } from '@/utils/elementAnimate'
 
-export default function enterPasswordPage() {
+export default function EnterPasswordPage() {
 
   // getting data from query
   const search_params = useSearchParams()

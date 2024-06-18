@@ -43,9 +43,9 @@ export async function POST(request: NextRequest) {
             } else {
                 const { username } = query_validated_user.data
                 const { email } = query_validated_email.data
-                const user_existed = await user_model.findOne({ username })
+                const user_existed = await user_model.findOne({ username, is_verified: false })
                 if (!user_existed) {
-                    return NextResponse.json({ error: "User not found", success: false }, { status: 401 })
+                    return NextResponse.json({ error: "Not found", success: false }, { status: 401 })
                 } else {
                     const verifyCode_expired = new Date(user_existed.verify_code_expiry) < new Date()
 

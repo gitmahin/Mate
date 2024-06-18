@@ -16,7 +16,7 @@ export async function POST(request:NextRequest) {
 
             try {
                 const {username, code} = await request.json()
-                const user = await user_model.findOne({username})
+                const user = await user_model.findOne({username, is_verified: false})
 
                 if(!user){
                     return NextResponse.json({error: "User is not registered", success: false}, {status: 401})

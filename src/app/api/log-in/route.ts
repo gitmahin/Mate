@@ -66,6 +66,7 @@ export async function POST(request: NextRequest) {
                         httpOnly: true,
                         secure: true,
                         sameSite: "strict"
+                        
                     })
 
                     response.cookies.set("publicToken", publicToken, {

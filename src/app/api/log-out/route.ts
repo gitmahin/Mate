@@ -7,7 +7,7 @@ export async function POST(request:NextRequest) {
             success: true
         })
 
-        response.cookies.set("token", "", {
+        response.cookies.set("authToken", "", {
             httpOnly: true,
             expires: new Date(0)
         })

@@ -15,7 +15,7 @@ interface Errors {
   email: string
 }
 
-export default function infoPage() {
+export default function InfoPage() {
   const [email, setEmail] = useState("")
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")

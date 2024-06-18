@@ -6,7 +6,7 @@ import { elementAnimate } from '@/utils/elementAnimate'
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 
-export default function welcomePage(){
+export default function WelcomePage(){
 
     const params = useParams<{name: string}>()
     const search_params = useSearchParams()

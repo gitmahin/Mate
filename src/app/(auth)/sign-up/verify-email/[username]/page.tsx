@@ -13,7 +13,7 @@ import { api_response } from '@/response/api_response'
 import Loading from '@/app/components/Loading'
 import { useSearchParams } from 'next/navigation'
 
-export default function verifyEmail() {
+export default function VerifyEmail() {
   const params = useParams<{username: string}>()
   const search_params = useSearchParams()
   const email = search_params.get("email")
@@ -108,7 +108,7 @@ export default function verifyEmail() {
             break
 
           case 429:
-            toast.error("Invalid request. Try again after 5 minutes.")
+            toast.error("Invalid request. Try again after e few minutes")
             break
 
           case 500:

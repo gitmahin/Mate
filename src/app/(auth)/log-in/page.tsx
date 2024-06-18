@@ -12,7 +12,7 @@ import toast from 'react-hot-toast'
 import { api_response } from '@/response/api_response'
 
 
-export default function logInPage() {
+export default function LogInPage() {
     const search_params = useSearchParams()
     const useremail = search_params.get("useremail")
     const [loading, setLoading] = useState(false)
@@ -37,7 +37,7 @@ export default function logInPage() {
         try {
             setLoading(true)
             await axios.post("/api/log-in", data)
-            toast.success("User loged in successfully")
+            router.push("/")
         } catch (error) {
             const axios_error = error as AxiosError<api_response>
             if (axios_error.response) {

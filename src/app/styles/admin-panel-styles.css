@@ -1,0 +1,86 @@
+.admin-section{
+    width: 100%;
+    padding: 0px 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.left-admin-section{
+    width: 350px;
+}
+
+.left-admin-section ul li{
+    width: 100%;
+    border-radius: 8px;
+    padding: 15px 15px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-admin-section ul .active-link{
+    background-color: #ec008e3d;
+    
+}
+
+.admin-right-arrow{
+    width: 25px;
+}
+
+.log-out{
+    color: #FF0000;
+    font-weight: bold;
+    position: fixed;
+    bottom: 30px;
+    cursor: pointer;
+}
+
+.right-admin-section{
+    width: 1000px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.persona ul li{
+    width: 100%;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.persona ul li p{
+    font-size: 20px;
+}
+
+.persona ul li .label{
+    color: white;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.persona ul li .data{
+    color: #949494;
+    font-size: 20px;
+}
+
+.verified-p{
+    color: #00FF85 !important;
+}
+
+.not-verified{
+    color: #FF0000 !important;
+}
+
+.verified-li{
+   background-color: #00ff8416;
+}
+
+.not-verified-li{
+    background-color: #ff000047;
+}
