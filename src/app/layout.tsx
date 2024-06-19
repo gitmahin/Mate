@@ -4,6 +4,8 @@ import "./globals.css";
 import "./styles/header-styles.css"
 import "./styles/admin-panel-styles.css"
 import "./styles/bottom-menu.css"
+import "./styles/find-mate-styles.css"
+import "./styles/one-mate-styles.css"
 import { Toaster } from 'react-hot-toast';
 import Script from 'next/script';
 
