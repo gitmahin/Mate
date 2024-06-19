@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
+import BottomMenu from '../components/BottomMenu'
 
 const layout = ({ children }: any) => {
     return (
@@ -8,6 +9,7 @@ const layout = ({ children }: any) => {
             <div className="main-section">
                 {children}
             </div>
+            <BottomMenu/>
         </>
     )
 }

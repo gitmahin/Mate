@@ -20,6 +20,9 @@ export const config = {
     '/log-in',
     '/sign-up/:path*',
     '/admin-area/:path*',
+    '/shares-feed',
+    '/videos',
+    '/find-mates',
     '/',
   ]
 }
