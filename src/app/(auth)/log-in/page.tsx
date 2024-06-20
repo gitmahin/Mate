@@ -83,10 +83,10 @@ export default function LogInPage() {
 
                     </div>
                     <div className="right-container">
-                        <p className='plus-icon1'>+</p>
-                        <p className='plus-icon2'>+</p>
-                        <p className='plus-icon3'>+</p>
-                        <p className='plus-icon4'>+</p>
+                        <p className='plus-icon plus-icon1'>+</p>
+                        <p className='plus-icon plus-icon2'>+</p>
+                        <p className='plus-icon plus-icon3'>+</p>
+                        <p className='plus-icon plus-icon4'>+</p>
                         <div className="left-line"></div>
                         <div className="right-line"></div>
                         <div className="right-box">

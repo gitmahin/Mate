@@ -163,6 +163,10 @@ body {
   background-color: transparent;
 }
 
+.plus-icon{
+  user-select: none;
+}
+
 .create-account-btn {
   position: absolute;
   bottom: 20px;
