@@ -4,6 +4,7 @@ import Miniloader from '@/app/components/Miniloader'
 import { api_response } from '@/response/api_response'
 import axios, { AxiosError } from 'axios'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React, { useCallback, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
@@ -22,6 +23,7 @@ export default function ChatLayout({ children }: any) {
 
   const [users, setUsers] = useState<Users[]>([])
   const [loading, setLoading] = useState(false)
+  const router = useRouter()
 
   const getAllUsers = useCallback(async () => {
     try {
@@ -60,15 +62,15 @@ export default function ChatLayout({ children }: any) {
         <div className="chat-container">
           <div className="chat-list-menu relative">
             {loading ? <Miniloader/> : ""}
-            <ul>
+            <ul className="pl-2">
               {users.map((user) => {
-                return <Link key={user._id} href={`/chat/mate/${user.username}?first_name=${user.first_name}&last_name=${user.last_name}`}>
-                  <li>
+                return <li key={user._id} onClick={() => {
+                    router.push(`/chat/mate/${user.username}?first_name=${user.first_name}&last_name=${user.last_name}`)
+                  }} className='rounded-md cursor-pointer' >
                     <h3>
                       {user.first_name} {user.last_name}
                     </h3>
                   </li>
-                </Link>
               })}
 
             </ul>

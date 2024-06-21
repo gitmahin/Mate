@@ -1,11 +1,21 @@
 import mongoose, {Schema, Document} from "mongoose";
 
 export interface Messages extends Document{
+    f_name_sender: string,
+    l_name_sender: string,
     content: string,
     sent_at: Date
 }
 
 const message_schema: Schema<Messages> = new Schema({
+    f_name_sender: {
+        type: String,
+        default: "Nimul"
+    },
+    l_name_sender: {
+        type: String,
+        default: "Mahin"
+    },
     content: {
         type: String,
         required: true

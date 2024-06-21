@@ -5,7 +5,7 @@ import { getDataFromToken } from "@/utils/get_data_from_token";
 import { NextRequest, NextResponse } from "next/server";
 
 
-export async function GET(request:NextRequest) {
+export async function GET(request: NextRequest) {
     await connDb()
     try {
         const user_name = getDataFromToken(request)
@@ -14,7 +14,7 @@ export async function GET(request:NextRequest) {
         const user_object_id = new mongoose.Types.ObjectId(user_id)
         try {
             const user = await user_model.aggregate([
-                {$match: {id: user_object_id}},
+                {$match: {_id: user_object_id}},
                 {$unwind: "$messages"},
                 {$sort: {"messages.sent_at": -1}},
                 {$group: {_id: "$_id", messages: {$push: "$messages"}}}

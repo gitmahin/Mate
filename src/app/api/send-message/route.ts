@@ -5,6 +5,7 @@ import { Messages } from "@/dataModels/user_model";
 export async function POST(request: Request) {
     await connDb()
     try {
+        
         const {username, content} = await request.json()
         const user = await user_model.findOne({username})
 
