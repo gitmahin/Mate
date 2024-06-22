@@ -9,6 +9,7 @@ export async function POST(request: NextRequest) {
     try {
         const token = request.cookies.get("authToken")?.value || ""
         jwt.verify(token, process.env.TOKEN_SECRET!) as TokenPayload
+
         if (!token) {
             const response = NextResponse.json({
                 error: "Session expired",

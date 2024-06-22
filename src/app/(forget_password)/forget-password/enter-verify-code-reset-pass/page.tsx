@@ -1,7 +1,6 @@
 "use client"
-import Miniloader from '@/app/components/Miniloader'
 import { api_response } from '@/response/api_response'
-import { change_pass_z_schema } from '@/zod_schemas/change-pass-z-schema'
+import { forget_pass_z_schema } from '@/zod_schemas/forget_pass_z_schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios, { AxiosError } from 'axios'
 import React, { useState } from 'react'
@@ -9,24 +8,21 @@ import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { z } from 'zod'
 
-export default function SecurityPage() {
-
+export default function EnterVerifyCodeToReset(){
   const [loading, setLoading] = useState(false)
 
-  const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof change_pass_z_schema>>({
-    resolver: zodResolver(change_pass_z_schema),
+  const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof forget_pass_z_schema>>({
+    resolver: zodResolver(forget_pass_z_schema),
     defaultValues: {
-      old_password: "",
       password: "",
       confirm_password: ""
     }
   })
 
-  const onSubmit = async (data: z.infer<typeof change_pass_z_schema>) => {
+  const onSubmit = async (data: z.infer<typeof forget_pass_z_schema>) => {
     try {
       setLoading(true)
       await axios.post("/api/update-password", {
-        old_password: data.old_password,
         password: data.password
       })
       toast.success("Password updated")
@@ -57,17 +53,14 @@ export default function SecurityPage() {
     }
   }
   return (
-    <>
-      <div className="change-password-container relative">
-        {loading ? <Miniloader /> : ""}
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h2 className='text-white text-3xl font-semibold'>Change Password</h2>
+    <div>
+      <h1 className='text-white text-3xl'>Reset your password</h1>
+      
+      <form onSubmit={handleSubmit(onSubmit)}>
           <div className="enter-email-container">
             <div className="s-e-c-box">
 
               {/* passwords */}
-              <p>Old Password</p>
-              <input required type="text" className='sign-up-input' {...register("old_password")} />
               <p>New Password</p>
               <input required type="text" className='sign-up-input' {...register("password")} />
               <div className="confirm-pass-container">
@@ -78,12 +71,11 @@ export default function SecurityPage() {
               </div>
 
               {/* submit data to database */}
-              <button disabled={loading ? true : false} className='w-full bg-[#30cb78] hover:bg-[#38ff95a9] py-3 rounded-md text-white font-semibold' type='submit'>Change Password</button>
+              <button disabled={loading ? true : false} className='text-white py-3 w-full bg-green-700 text-[18px] font-medium rounded-md hover:bg-green-800 mt-1' type='submit'>Change Password</button>
             </div>
           </div>
         </form>
-      </div>
-    </>
+    </div>
   )
 }
 

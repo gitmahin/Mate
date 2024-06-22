@@ -1,5 +1,4 @@
 "use client"
-import Header from '@/app/components/Header';
 import { api_response } from '@/response/api_response';
 import axios, { AxiosError } from 'axios'
 import React, { useCallback, useEffect, useState } from 'react'
@@ -58,7 +57,6 @@ export default function PersonalDetailsPage() {
 
   useEffect(() => {
     const dateString = `${userData?.created_at}`;
-
     // Regular expression to match the date and time parts
     const regex = /^(.*\d{4})\s(\d{2}:\d{2}:\d{2})/;
 

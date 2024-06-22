@@ -1,0 +1,54 @@
+.f-p-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.left-f-p{
+    width: 500px;
+}
+
+.left-f-p img{
+    width: 100px;
+    object-fit: contain;
+    object-position: center;
+    margin-top: 50px;
+}
+
+.left-f-p p{
+    font-size: 13px;
+    letter-spacing: 2px;
+    background-color: transparent;
+    user-select: none;
+    margin-top: 5px;
+}
+
+.right-f-p{
+    width: 500px;
+    height: 400px;
+}
+
+.input-f-p{
+    outline: none;
+    border-top: 1px solid #ec008e5f;
+    border-bottom: 1px solid #ec008e5f;
+    background-color: transparent;
+    width: 100%;
+    height: 55px;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.input-f-p:focus {
+    border-top: 1px solid #ec008e;
+    border-bottom: 1px solid #ec008e;
+}
+
+.box-f-p{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ec008e12;
+}

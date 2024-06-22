@@ -14,18 +14,21 @@ export default function Adminlayout({ children }: any) {
     const pathname = usePathname();
     const router = useRouter()
     const [loading, setLoading] = useState(false)
+    const [showPopUp, setShowPopUp] = useState(false)
 
-    const logOut = async () =>{
+    const logOut = async () => {
         try {
             setLoading(true)
             await axios.post("/api/log-out")
             router.push("/log-in")
         } catch (error) {
             toast.error("Something went wrong")
-        }finally{
+        } finally {
             setLoading(false)
         }
     }
+
+
 
     return (
         <>
@@ -44,7 +47,7 @@ export default function Adminlayout({ children }: any) {
                                         colors="primary:#ffffff"
                                         target="li"
                                         class="admin-right-arrow"
-                                        >
+                                    >
                                     </lord-icon>
                                 </li>
                             </Link>
@@ -57,7 +60,7 @@ export default function Adminlayout({ children }: any) {
                                         colors="primary:#ffffff"
                                         target="li"
                                         class="admin-right-arrow"
-                                        >
+                                    >
                                     </lord-icon>
                                 </li>
                             </Link>
@@ -70,7 +73,7 @@ export default function Adminlayout({ children }: any) {
                                         colors="primary:#ffffff"
                                         target="li"
                                         class="admin-right-arrow"
-                                        >
+                                    >
                                     </lord-icon>}
                                 </li>
                             </Link>
@@ -83,13 +86,22 @@ export default function Adminlayout({ children }: any) {
                                         colors="primary:#ffffff"
                                         target="li"
                                         class="admin-right-arrow"
-                                        >
+                                    >
                                     </lord-icon>
                                 </li>
                             </Link>
 
                         </ul>
-                        <p className='log-out' onClick={logOut} >Log out</p>
+                        <p className='log-out' onClick={() => setShowPopUp(true)} >Log out</p>
+                        {showPopUp ? <div className="logout-pop-up-wrapper w-full fixed h-[100vh] top-0 left-0 z-50 flex justify-center items-center">
+                            <div className="log-out-container w-[fit-content] p-8 bg-black rounded-md">
+                                <p className='text-white text-xl font-medium text-center mb-9'>Are you sure?</p>
+                                <div className="log-out-buttons flex justify-center items-center gap-5">
+                                    <button className='bg-red-600 text-[18px] px-[10px] py-[8px] rounded-md text-white' onClick={() => setShowPopUp(false)}>Cancel</button>
+                                    <button className='bg-green-500 text-[18px] px-[10px] py-[8px] rounded-md text-white' onClick={logOut}>Log out</button>
+                                </div>
+                            </div>
+                        </div> : ""}
                     </div>
 
                     <div className="right-admin-section">
@@ -98,7 +110,7 @@ export default function Adminlayout({ children }: any) {
                 </section>
             </div>
 
-            {loading ? <Loading/> : ""}
+            {loading ? <Loading /> : ""}
         </>
     )
 }

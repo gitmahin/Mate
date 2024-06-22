@@ -84,3 +84,7 @@
 .not-verified-li{
     background-color: #ff000047;
 }
+
+.logout-pop-up-wrapper{
+    backdrop-filter: blur(30px);
+}
