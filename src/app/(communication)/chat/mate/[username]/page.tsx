@@ -29,7 +29,9 @@ export default function ChatMatePage() {
 
   const getMessage = useCallback(async () => {
     try {
-      const response = await axios.get("/api/get-messages")
+      const response = await axios.post("/api/get-messages", {
+        username: params.username
+      })
       setMessages(response.data.messages || [])
     } catch (error) {
       const axios_error = error as AxiosError<api_response>
@@ -59,10 +61,6 @@ export default function ChatMatePage() {
     getMessage()
   }, [getMessage])
 
-  useEffect(() => {
-    console.log(messages)
-  }, [messages])
-
 
   return (
     <div className='chat-box'>
@@ -71,6 +69,9 @@ export default function ChatMatePage() {
       </div>
       <div className="chat-monitor">
         <h3 className='text-white'>{ifmessages ? "" : "Start chatting"}</h3>
+        {messages.map((msg) => {
+          return <li className='text-white'>{msg.content}</li>
+        })}
       </div>
       <div className="chat-input">
         <textarea name="chat" id="chat-text-area" placeholder='Message' onChange={(e) => setContent(e.target.value)}></textarea>

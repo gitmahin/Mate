@@ -5,11 +5,11 @@ import { getDataFromToken } from "@/utils/get_data_from_token";
 import { NextRequest, NextResponse } from "next/server";
 
 
-export async function GET(request: NextRequest) {
+export async function POST(request: NextRequest) {
     await connDb()
     try {
-        const user_name = getDataFromToken(request)
-        const user_existed = await user_model.findOne({username: user_name})
+        const {username}= await request.json()
+        const user_existed = await user_model.findOne({username})
         const user_id = user_existed?._id as string
         const user_object_id = new mongoose.Types.ObjectId(user_id)
         try {
