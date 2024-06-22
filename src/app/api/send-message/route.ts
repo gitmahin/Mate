@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
             if(!user){
                 return NextResponse.json({error: "User not found", success: false}, {status: 404})
             }else{
-                const new_message = { f_name_sender, l_name_sender, content, sent_at: new Date()}
+                const new_message = { f_name_sender, l_name_sender, sender: user_name, content, sent_at: new Date()}
                 user.messages.push(new_message as Messages)
                 await user.save()
             }

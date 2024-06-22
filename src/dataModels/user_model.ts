@@ -3,6 +3,7 @@ import mongoose, {Schema, Document} from "mongoose";
 export interface Messages extends Document{
     f_name_sender: string,
     l_name_sender: string,
+    sender: string,
     content: string,
     sent_at: Date
 }
@@ -15,6 +16,9 @@ const message_schema: Schema<Messages> = new Schema({
     l_name_sender: {
         type: String,
         
+    },
+    sender: {
+        type: String
     },
     content: {
         type: String,

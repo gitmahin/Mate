@@ -9,15 +9,15 @@ export async function POST(request: NextRequest) {
     await connDb()
     try {
         const sender = getDataFromToken(request)
-        const {username}= await request.json()
-        const user_existed = await user_model.findOne({username})
+        const {mate_username}= await request.json()
+        const user_existed = await user_model.findOne({username: sender})
         const user_id = user_existed?._id as string
         const user_object_id = new mongoose.Types.ObjectId(user_id)
         try {
             const user = await user_model.aggregate([
                 {$match: {_id: user_object_id}},
                 {$unwind: "$messages"},
-                {$match: {"messages.sender": sender}},
+                {$match: {"messages.sender": mate_username}},
                 {$sort: {"messages.sent_at": 1}},
                 {$group: {_id: "$_id", messages: {$push: "$messages"}}}
             ])
