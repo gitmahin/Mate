@@ -33,8 +33,9 @@ export default function PersonalDetailsPage() {
       if (axiosError.response) {
         const status = axiosError.response.status
         switch (status) {
+          case 400:
+            break;
           case 403:
-            toast.error("Session expired")
             break;
           default:
             toast.error(axiosError.response.data.message ?? "Something went wrong");

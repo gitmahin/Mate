@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
                     return NextResponse.json({ error: "Invalid user", success: false }, { status: 400 })
                 }
             }else{
-                user_existed = await user_model.findOne({ username: token_username, is_verified: true }).select("-first_name -last_name -created_at -messages -username")
+                user_existed = await user_model.findOne({ username: token_username, is_verified: true }).select("-first_name -last_name -created_at -messages")
                 if (!user_existed) {
                     return NextResponse.json({ error: "Invalid user", success: false }, { status: 400 })
                 }
@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
                         }, { status: 500 })
                     }
 
-                    return NextResponse.json({ message: "Verification email sent successfully", success: true }, { status: 200 })
+                    return NextResponse.json({ message: "Verification email sent successfully", success: true, data: user_existed.email }, { status: 200 })
                 }
             }
 

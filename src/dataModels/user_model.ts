@@ -45,7 +45,8 @@ export interface User extends Document{
     verify_code_expiry: Date,
     messages: Messages[],
     verified_user_to_reset_pass: boolean,
-    duration_of_next_reset_pass_request: Date
+    duration_of_next_reset_pass_request: Date,
+    last_password_changed: Date
 
 }
 
@@ -101,6 +102,9 @@ const user_schema: Schema<User> = new Schema({
     },
     duration_of_next_reset_pass_request: {
         type: Date,
+    },
+    last_password_changed: {
+        type: Date
     }
 
 })

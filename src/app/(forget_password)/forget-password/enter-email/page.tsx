@@ -28,11 +28,11 @@ export default function EnterEmailToResetPass() {
   const sendVerifyEmailResetPass = async () => {
     try {
       setLoading(true)
-      await axios.post("/api/verify-email-forget-password", {
+      const response = await axios.post("/api/verify-email-forget-password", {
         email: email
       })
       toast.success("Reset verification code sent")
-      router.push(`/forget-password/enter-verify-code-reset-pass?email=${email}`)
+      router.push(`/forget-password/enter-verify-code-reset-pass?email=${email || response.data.data}`)
     } catch (error) {
       const axios_error = error as AxiosError<api_response>
       if (axios_error.response) {

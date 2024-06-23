@@ -44,11 +44,8 @@ export default function EnterPasswordResetPage() {
           case 401:
             toast.error("Cannot access right now. Try again later")
             break
-            case 403:
+          case 403:
             toast.error("Request timeout")
-            break
-          case 429:
-            toast.error("Too many requests. Try again later")
             break
           case 503:
             toast.error("Server is under maintenance. Try again later")
@@ -79,7 +76,6 @@ export default function EnterPasswordResetPage() {
               <p>Confirm password</p>
               <input required type="password" className='sign-up-input' {...register("confirm_password")} />
               {errors.confirm_password && <span className='error'>{errors.confirm_password.message}</span>}
-
             </div>
 
             {/* submit data to database */}

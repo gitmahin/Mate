@@ -5,7 +5,7 @@ import axios, { AxiosError } from 'axios'
 import { useParams, useSearchParams } from 'next/navigation'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
-import { formatMessageDate } from '@/utils/date_formater'
+import { formatDate } from '@/utils/date_formater'
 
 export default function ChatMatePage() {
 
@@ -126,7 +126,7 @@ export default function ChatMatePage() {
             return <li key={index} className={msg.fromMate ? 'text-white text-left flex flex-col items-start' : 'text-white  text-right flex flex-col items-end'}>
               <span className='text-gray-500'>{msg.fromMate ? `${msg.f_name_sender}` + `${" "}` + `${msg.l_name_sender}` : "you"}</span>
               <p className={`text-[18px] ${msg.fromMate ? "bg-[#ec008e]" : "bg-blue-600"}`}>{msg.content}</p>
-              <span className='text-white text-[12px] mt-2'>{msg.fromMate ? `${formatMessageDate(msg.sent_at)}` : `${formatMessageDate(msg.sent_at)}`}</span>
+              <span className='text-white text-[12px] mt-2'>{msg.fromMate ? `${formatDate(msg.sent_at)}` : `${formatDate(msg.sent_at)}`}</span>
 
             </li>
           })}
