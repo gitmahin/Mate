@@ -1,9 +1,10 @@
 "use client"
 import Miniloader from '@/app/components/Miniloader'
 import { api_response } from '@/response/api_response'
+import { elementAnimate } from '@/utils/elementAnimate'
 import axios, { AxiosError } from 'axios'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
 export default function EnterVerifyCodeResetPage() {
@@ -56,10 +57,15 @@ export default function EnterVerifyCodeResetPage() {
             setLoading(false)
         }
     }
+
+    useEffect(() =>{
+        elementAnimate(".hide-element", "visible-element")
+    })
+
     return (
         <>
             {loading ? <Miniloader /> : ""}
-            <div className='box-f-p'>
+            <div className='box-f-p hide-element animate-auth-transition'>
                 <h1 className='text-white text-3xl'>Enter verification code</h1>
                 <p className='text-white mt-5 text-[16px]'>We have sent you a verification code to your email to verify you before reseting password</p>
                 <input className='input-f-p' type="text" onChange={(e) => setCode(e.target.value)} />

@@ -34,7 +34,6 @@ export default function FindMatesPage() {
         const status = axios_error.response.status
         switch (status) {
           case 503:
-            toast.error("Server is under maintenance. Please check back later")
             break
           default:
             toast.error("Something went wrong")

@@ -4,7 +4,7 @@ import redis from "../lib/redisClient"
 
 const ratelimit = new Ratelimit({
     redis: redis,
-    limiter: Ratelimit.fixedWindow(3, "1 s") // set the limit for 1 d. it will be best.
+    limiter: Ratelimit.fixedWindow(4, "1 h")
 })
 
 export default ratelimit

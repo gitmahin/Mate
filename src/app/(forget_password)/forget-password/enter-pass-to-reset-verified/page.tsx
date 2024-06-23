@@ -1,11 +1,12 @@
 "use client"
 import Miniloader from '@/app/components/Miniloader'
 import { api_response } from '@/response/api_response'
+import { elementAnimate } from '@/utils/elementAnimate'
 import { forget_pass_z_schema } from '@/zod_schemas/forget_pass_z_schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios, { AxiosError } from 'axios'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { z } from 'zod'
@@ -60,8 +61,13 @@ export default function EnterPasswordResetPage() {
       setLoading(false)
     }
   }
+
+  useEffect(() => {
+    elementAnimate(".hide-element", "visible-element")
+  }, [])
+
   return (
-    <div>
+    <div className='hide-element animate-auth-transition'>
       {loading ? <Miniloader /> : ""}
       <h1 className='text-white text-3xl'>Reset your password</h1>
 

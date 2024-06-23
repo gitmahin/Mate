@@ -1,6 +1,7 @@
 "use client"
 import Miniloader from '@/app/components/Miniloader'
 import { api_response } from '@/response/api_response'
+import { elementAnimate } from '@/utils/elementAnimate'
 import axios, { AxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
 import React, { useCallback, useEffect, useState } from 'react'
@@ -23,6 +24,7 @@ export default function EnterEmailToResetPass() {
 
   useEffect(() => {
     loginStatus()
+    elementAnimate(".hide-element", "visible-element")
   }, [])
 
   const sendVerifyEmailResetPass = async () => {
@@ -71,7 +73,7 @@ export default function EnterEmailToResetPass() {
   return (
     <>
       {loading ? <Miniloader /> : ""}
-      <div className='box-f-p'>
+      <div className='box-f-p hide-element animate-auth-transition'>
         {isToken ? ""  : <><h1 className='text-white text-3xl'>Enter your email</h1>
           <input className='input-f-p' type="text" required onChange={(e) => setEmail(e.target.value)} /></>}    
         <button onClick={() => {
