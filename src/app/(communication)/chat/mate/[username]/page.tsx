@@ -5,6 +5,7 @@ import axios, { AxiosError } from 'axios'
 import { useParams, useSearchParams } from 'next/navigation'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import toast from 'react-hot-toast'
+import { formatMessageDate } from '@/utils/date_formater'
 
 export default function ChatMatePage() {
 
@@ -93,20 +94,6 @@ export default function ChatMatePage() {
       }
     }
   }, [params.username])
-
-  const formatMessageDate = (sentAt: any) => {
-    const date = new Date(sentAt);
-    const options: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true // Use 24-hour format
-    };
-    return new Intl.DateTimeFormat('en-US', options).format(date);
-  }
-
 
   useEffect(() => {
     getMessage()

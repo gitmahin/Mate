@@ -3,6 +3,7 @@ import user_model from "@/dataModels/user_model";
 import { NextRequest, NextResponse } from "next/server";
 import { sendVerificationEmailForgetPassword } from "@/utils/send_forgetpass_verification_email";
 import { ratelimit_reset_pass } from "@/utils/rate_limit_reset_pass";
+import { getDataFromToken } from "@/utils/get_data_from_token";
 
 export async function POST(request: NextRequest) {
 
@@ -14,10 +15,20 @@ export async function POST(request: NextRequest) {
     } else {
         await connDb()
         try {
-            const { email } = await request.json()
-            const user_existed = await user_model.findOne({ email, is_verified: true }).select("-first_name -last_name -created_at -messages -username")
-            if (!user_existed) {
-                return NextResponse.json({ error: "Invalid user", success: false }, { status: 400 })
+            const token_username = getDataFromToken(request)
+            let user_existed;
+
+            if (typeof token_username !== "string") {
+                const { email } = await request.json()
+                user_existed = await user_model.findOne({ email, is_verified: true }).select("-first_name -last_name -created_at -messages -username")
+                if (!user_existed) {
+                    return NextResponse.json({ error: "Invalid user", success: false }, { status: 400 })
+                }
+            }else{
+                user_existed = await user_model.findOne({ username: token_username, is_verified: true }).select("-first_name -last_name -created_at -messages -username")
+                if (!user_existed) {
+                    return NextResponse.json({ error: "Invalid user", success: false }, { status: 400 })
+                }
             }
 
             const verifyCode_expired = new Date(user_existed.verify_code_expiry) < new Date()

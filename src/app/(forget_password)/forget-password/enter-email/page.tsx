@@ -3,13 +3,28 @@ import Miniloader from '@/app/components/Miniloader'
 import { api_response } from '@/response/api_response'
 import axios, { AxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 
 export default function EnterEmailToResetPass() {
   const router = useRouter()
   const [email, setEmail] = useState("")
   const [loading, setLoading] = useState(false)
+  const [isToken, setIsToken] = useState(true)
+
+  const loginStatus = useCallback(async () => {
+    try {
+      await axios.post('/api/login-status')
+      setIsToken(true)
+    } catch (error) {
+      setIsToken(false)
+    }
+  }, [])
+
+  useEffect(() => {
+    loginStatus()
+  }, [])
+
   const sendVerifyEmailResetPass = async () => {
     try {
       setLoading(true)
@@ -27,10 +42,10 @@ export default function EnterEmailToResetPass() {
             toast.error("Invalid user")
             break
           case 401:
-            toast.error("Cannot access right now. Try again later.")
+            toast.error("You cannot change the password for 15 days from the last reset password day")
             break
           case 403:
-            toast.error("Invalid request")
+            toast.error("Invalid request. Try again later")
             break
           case 429:
             toast.error("Too many requests. Try again later")
@@ -52,13 +67,16 @@ export default function EnterEmailToResetPass() {
       setLoading(false)
     }
   }
+
   return (
     <>
       {loading ? <Miniloader /> : ""}
       <div className='box-f-p'>
-        <h1 className='text-white text-3xl'>Enter your email</h1>
-        <input className='input-f-p' type="text" required onChange={(e) => setEmail(e.target.value)} />
-        <button onClick={sendVerifyEmailResetPass} className='text-white py-3 w-full bg-green-700 text-[18px] font-medium rounded-md hover:bg-green-800 mt-1'>Get verification code</button>
+        {isToken ? ""  : <><h1 className='text-white text-3xl'>Enter your email</h1>
+          <input className='input-f-p' type="text" required onChange={(e) => setEmail(e.target.value)} /></>}    
+        <button onClick={() => {
+          sendVerifyEmailResetPass()
+        }} className='text-white py-3 w-full bg-green-700 text-[18px] font-medium rounded-md hover:bg-green-800 mt-1'>Get verification code</button>
       </div>
     </>
   )
