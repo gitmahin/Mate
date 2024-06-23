@@ -1,7 +1,7 @@
 import connDb from "@/lib/conndb";
 import user_model from "@/dataModels/user_model";
 import { NextRequest, NextResponse } from "next/server";
-import ratelimit_reset_pass from "@/utils/rate_limit_reset_pass";
+import {ratelimit_reset_pass} from "@/utils/rate_limit_reset_pass";
 import bcrypt from "bcryptjs"
 
 export async function POST(request: NextRequest) {
@@ -40,6 +40,7 @@ export async function POST(request: NextRequest) {
                             })
 
                             user_existed.duration_of_next_reset_pass_request = new_date
+                            user_existed.verified_user_to_reset_pass = false
                             await user_existed.save()
         
                             return NextResponse.json({ message: "Password reset successfully", success: true }, { status: 200 })

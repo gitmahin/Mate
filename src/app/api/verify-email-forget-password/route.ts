@@ -2,9 +2,7 @@ import connDb from "@/lib/conndb";
 import user_model from "@/dataModels/user_model";
 import { NextRequest, NextResponse } from "next/server";
 import { sendVerificationEmailForgetPassword } from "@/utils/send_forgetpass_verification_email";
-import ratelimit_reset_pass from "@/utils/rate_limit_reset_pass";
-import { getDataFromToken } from "@/utils/get_data_from_token";
-
+import { ratelimit_reset_pass } from "@/utils/rate_limit_reset_pass";
 
 export async function POST(request: NextRequest) {
 
@@ -26,7 +24,7 @@ export async function POST(request: NextRequest) {
             const duration_reset_pass_request_not_end = new Date(user_existed.duration_of_next_reset_pass_request) > new Date()
 
             if (duration_reset_pass_request_not_end) {
-                return NextResponse.json({ error: "Cannot access now. Try again later", success: false }, {status: 401})
+                return NextResponse.json({ error: "Cannot access now. Try again later", success: false }, { status: 401 })
             } else {
 
                 if (!verifyCode_expired) {
@@ -54,9 +52,9 @@ export async function POST(request: NextRequest) {
                 }
             }
 
-            } catch (error) {
-                console.log(error)
-                return NextResponse.json({ error: "Server is under mantenance", success: false }, { status: 503 })
-            }
+        } catch (error) {
+            console.log(error)
+            return NextResponse.json({ error: "Server is under mantenance", success: false }, { status: 503 })
         }
+    }
 }

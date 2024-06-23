@@ -1,7 +1,7 @@
 import connDb from "@/lib/conndb";
 import user_model from "@/dataModels/user_model";
 import { NextRequest, NextResponse } from "next/server";
-import ratelimit_reset_pass from "@/utils/rate_limit_reset_pass";
+import {ratelimit_reset_pass} from "@/utils/rate_limit_reset_pass";
 
 export async function POST(request: NextRequest) {
     const ip = request.ip ?? "127.0.0.1" // `??` (Nullish Coalescing Operator): This operator returns the right-hand side operand when the left-hand side operand is `null` or `undefined`. It is similar to the logical OR operator (`||`)

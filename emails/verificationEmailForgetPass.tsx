@@ -31,7 +31,7 @@ export default function verificationEmailForgetPassword({email, verify_code}: ve
                 </Row>
                 <Row>
                     <Text>
-                        Go to the link <Link href={`http://localhost:3000/forget-password/verify-email-to-reset-password?email=${email}`}>Go the the verify page</Link> and paste the code
+                        Go to the link <Link href={`http://localhost:3000/forget-password/enter-verify-code-reset-pass?email=${email}`}>Go the the verify page</Link> and paste the code
                     </Text>
                 </Row>
             </Section>
