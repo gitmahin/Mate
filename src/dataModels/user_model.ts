@@ -42,8 +42,10 @@ export interface User extends Document{
     created_at: string,
     verify_code: string,
     is_verified: boolean,
-    verify_code_expiry: Date
-    messages: Messages[]
+    verify_code_expiry: Date,
+    messages: Messages[],
+    verified_user_to_reset_pass: boolean,
+    duration_of_next_reset_pass_request: Date
 
 }
 
@@ -91,7 +93,16 @@ const user_schema: Schema<User> = new Schema({
         type: Date,
         required: [true, "Verify code expiry is required"]
     },
-    messages: [message_schema]
+    messages: [message_schema],
+    verified_user_to_reset_pass: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+    duration_of_next_reset_pass_request: {
+        type: Date,
+    }
+
 })
 
 const user_model = (mongoose.models.User as mongoose.Model<User>) || mongoose.model<User>("User", user_schema)

@@ -8,6 +8,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { z } from 'zod'
+import Link from 'next/link'
 
 export default function SecurityPage() {
 
@@ -68,7 +69,8 @@ export default function SecurityPage() {
               {/* passwords */}
               <p>Old Password</p>
               <input required type="text" className='sign-up-input' {...register("old_password")} />
-              <p>New Password</p>
+              <Link className='text-blue-600' href={"/forget-password/enter-email"}>Forgot password</Link>
+              <p className='mt-5'>New Password</p>
               <input required type="text" className='sign-up-input' {...register("password")} />
               <div className="confirm-pass-container">
                 <p>Confirm password</p>

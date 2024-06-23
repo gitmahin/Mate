@@ -93,7 +93,7 @@ export default function Adminlayout({ children }: any) {
 
                         </ul>
                         <p className='log-out' onClick={() => setShowPopUp(true)} >Log out</p>
-                        {showPopUp ? <div className="logout-pop-up-wrapper w-full fixed h-[100vh] top-0 left-0 z-50 flex justify-center items-center">
+                        {showPopUp ? <div className="logout-pop-up-wrapper w-full fixed h-[100vh] top-0 left-0 flex justify-center items-center">
                             <div className="log-out-container w-[fit-content] p-8 bg-black rounded-md">
                                 <p className='text-white text-xl font-medium text-center mb-9'>Are you sure?</p>
                                 <div className="log-out-buttons flex justify-center items-center gap-5">

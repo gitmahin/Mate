@@ -58,6 +58,8 @@ export async function POST(request: NextRequest) {
                     
 
                     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, { expiresIn: "1h" })
+
+                    // public token is not used in the app yet.
                     const publicToken = await jwt.sign(additional_information, process.env.TOKEN_SECRET!)
 
                     const response = NextResponse.json({ message: "User logged in successfully", success: true }, { status: 200 })

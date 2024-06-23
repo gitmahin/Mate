@@ -95,7 +95,8 @@ export default function LogInPage() {
                                 <input type="text" className='input' {...register("email")} />
                                 <p>Password</p>
                                 <input type="password" className='input' {...register("password")} />
-                                <button type='submit' className='login-btn' >Log in</button>
+                                <Link className='text-blue-600' href={"/forget-password/enter-email"}>Forgot password</Link>
+                                <button type='submit' className='login-btn mt-5' >Log in</button>
                             </form>
                         </div>
                     </div>

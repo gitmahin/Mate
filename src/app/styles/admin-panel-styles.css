@@ -87,4 +87,5 @@
 
 .logout-pop-up-wrapper{
     backdrop-filter: blur(30px);
+    z-index: 1111;
 }
