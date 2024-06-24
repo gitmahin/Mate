@@ -12,6 +12,7 @@ export default function ChatMatePage() {
   const search_params = useSearchParams()
   const first_name = search_params.get("first_name")
   const last_name = search_params.get("last_name")
+  // get username from dynamic segments
   const params = useParams<{ username: string }>()
   const [content, setContent] = useState("")
   const [messages, setMessages] = useState<Messages[]>([])
