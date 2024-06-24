@@ -8,7 +8,7 @@ Bring people together
 ## Features of the Mate
 
 **Available features**
-- Login users with verify email
+- Sign up users with verify email
 - Resend email
 - Forgot password
 - Update password
