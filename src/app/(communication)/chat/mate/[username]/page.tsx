@@ -108,6 +108,7 @@ export default function ChatMatePage() {
   }, [messages, myMateMessages]);
 
   const interleaveMessages = (myMateMessages: Messages[], messages: Messages[]) => {
+    // from mate = true, means my mate and false means to me. By using this condition we can seprate the color of mymate messages and my messages
     const allMessages = [...myMateMessages.map(msg => ({ ...msg, fromMate: true })), ...messages.map(msg => ({ ...msg, fromMate: false }))];
     return allMessages.sort((a, b) => new Date(a.sent_at).getTime() - new Date(b.sent_at).getTime());
   }
