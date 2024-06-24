@@ -25,6 +25,7 @@ Bring people together
 - Notifications
 - Save loged out user in login page
 - And more updates
+- Responsive (currently Mate is not responsive)
 
 **Mate's algorithm will go live soon once development is complete.**
 
