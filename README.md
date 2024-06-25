@@ -1,7 +1,7 @@
 # Mate - A Social Next.js App
 It's going to be a full stack social Next.js App
 
-***PRE Released.***
+***PRE Released.*** <a href="https://www.facebook.com/100054266981639/videos/1316153459222949/">Show video</a>
 
 ## Features of the Mate
 - Sign up users with verify email
