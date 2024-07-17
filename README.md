@@ -3,7 +3,7 @@ It's going to be a full stack social Next.js App
 
 ***PRE Released.*** <a href="https://www.facebook.com/100054266981639/videos/1316153459222949/">Show video</a>
 
-[![Watch the video](/public/assets/mate_logo.png)](/public/ac72181f-1773-40ba-8b86-61b3d979a2f4.mp4)
+![Watch the video](/public/assets/mate_logo.png)
 
 ## Features of the Mate
 - Sign up users with verify email
