@@ -45,7 +45,7 @@ During sign-up, if a user enters their name and email, then navigates to the pas
 Mate's algorithm is standard and secure. 
 The algorithm makes the code easy to understand.
 Algorithm will go live soon once development is completed. 
-Development of Mate is temporarily on hold now. Updates will resume after 1.5 months.
+Development of Mate is temporarily on hold now. Updates will resume soon.
 
 ## Packages:
 
