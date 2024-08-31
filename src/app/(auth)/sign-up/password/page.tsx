@@ -129,7 +129,6 @@ function EnterPasswordForm() {
 
 export default function EnterPasswordPage() {
   return (
-      // Wrapping the LogInForm with Suspense
       <Suspense >
           <EnterPasswordForm />
       </Suspense>

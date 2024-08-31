@@ -116,7 +116,6 @@ function LogInForm() {
 
 export default function LogInPage() {
     return (
-        // Wrapping the LogInForm with Suspense
         <Suspense>
             <LogInForm />
         </Suspense>

@@ -78,7 +78,6 @@ function EnterVerifyCodeResetForm() {
 
 export default function EnterVerifyCodeResetPage() {
     return (
-        // Wrapping the LogInForm with Suspense
         <Suspense >
             <EnterVerifyCodeResetForm />
         </Suspense>
