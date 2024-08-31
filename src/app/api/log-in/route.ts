@@ -56,9 +56,6 @@ export async function POST(request: NextRequest) {
                         usernames: user_existed.username
                     }
                     
-                    if(!tokenData || !additional_information){
-                        return NextResponse.json({ error: "Nothing", success: false }, { status: 400 })
-                    }
 
                     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, { expiresIn: "1h" })
 
