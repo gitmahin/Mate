@@ -10,6 +10,7 @@ import "./styles/chat-mate-styles.css"
 import "./styles/forget-pass-styles.css"
 import { Toaster } from 'react-hot-toast';
 import Script from 'next/script';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
+        <SkeletonTheme baseColor="#202020" highlightColor="#444">
+          {children}
+        </SkeletonTheme>
         <Toaster
           position="bottom-right"
           reverseOrder={false}
