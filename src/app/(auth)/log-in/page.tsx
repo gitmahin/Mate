@@ -115,10 +115,9 @@ function LogInForm() {
 
 
 export default function LogInPage() {
-    return (
-        <Suspense>
+    return <Suspense fallback={null}>
             <LogInForm />
         </Suspense>
-    )
+    
 }
 

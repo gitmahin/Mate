@@ -77,9 +77,7 @@ function EnterVerifyCodeResetForm() {
 
 
 export default function EnterVerifyCodeResetPage() {
-    return (
-        <Suspense >
+    return <Suspense fallback={null}>
             <EnterVerifyCodeResetForm />
         </Suspense>
-    )
 }

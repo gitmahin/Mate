@@ -128,9 +128,8 @@ function EnterPasswordForm() {
 
 
 export default function EnterPasswordPage() {
-  return (
-      <Suspense >
+  return <Suspense fallback={null} >
           <EnterPasswordForm />
       </Suspense>
-  )
+  
 }
