@@ -3,6 +3,14 @@ It's going to be a full stack social Next.js App
 
 ***PRE Released.*** <a href="https://www.facebook.com/100054266981639/videos/1316153459222949/">Show video</a>
 
+Visit website: <a href="https://mate-iota.vercel.app/log-in">Mate.app</a>
+
+When you create an account, you will be able to see my account and other users.
+**Note:** The verification code will not be sent to your email due to the free resend account. Please ask me for the code.
+
+**Note:** Mate is not currently responsive. So Try the website on your pc. 
+Updates will be deployed soon
+
 ![Watch the video](/public/assets/mate_logo.png)
 
 ## Features of the Mate
