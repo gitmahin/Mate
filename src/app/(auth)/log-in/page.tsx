@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Loading from '@/app/components/Loading'
@@ -12,7 +12,7 @@ import toast from 'react-hot-toast'
 import { api_response } from '@/response/api_response'
 
 
-export default function LogInPage() {
+function LogInForm() {
     const search_params = useSearchParams()
     const useremail = search_params.get("useremail")
     const [loading, setLoading] = useState(false)
@@ -113,4 +113,13 @@ export default function LogInPage() {
     )
 }
 
+
+export default function LogInPage() {
+    return (
+        // Wrapping the LogInForm with Suspense
+        <Suspense fallback={<Loading />}>
+            <LogInForm />
+        </Suspense>
+    )
+}
 
