@@ -4,10 +4,10 @@ import { api_response } from '@/response/api_response'
 import { elementAnimate } from '@/utils/elementAnimate'
 import axios, { AxiosError } from 'axios'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import toast from 'react-hot-toast'
 
-export default function EnterVerifyCodeResetPage() {
+function EnterVerifyCodeResetForm() {
     const [loading, setLoading] = useState(false)
     const [code, setCode] = useState("")
     const search_params = useSearchParams()
@@ -76,3 +76,11 @@ export default function EnterVerifyCodeResetPage() {
 }
 
 
+export default function EnterVerifyCodeResetPage() {
+    return (
+        // Wrapping the LogInForm with Suspense
+        <Suspense >
+            <EnterVerifyCodeResetForm />
+        </Suspense>
+    )
+}

@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import axios, { AxiosError } from "axios"
@@ -12,7 +12,7 @@ import Loading from '@/app/components/Loading'
 import { api_response } from '@/response/api_response'
 import { elementAnimate } from '@/utils/elementAnimate'
 
-export default function EnterPasswordPage() {
+function EnterPasswordForm() {
 
   // getting data from query
   const search_params = useSearchParams()
@@ -123,5 +123,15 @@ export default function EnterPasswordPage() {
 
     {loading ? <Loading /> : ""}
     </>
+  )
+}
+
+
+export default function EnterPasswordPage() {
+  return (
+      // Wrapping the LogInForm with Suspense
+      <Suspense >
+          <EnterPasswordForm />
+      </Suspense>
   )
 }

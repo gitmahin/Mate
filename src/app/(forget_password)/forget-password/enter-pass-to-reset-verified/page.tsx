@@ -6,12 +6,12 @@ import { forget_pass_z_schema } from '@/zod_schemas/forget_pass_z_schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import axios, { AxiosError } from 'axios'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { z } from 'zod'
 
-export default function EnterPasswordResetPage() {
+function EnterPasswordResetForm() {
   const [loading, setLoading] = useState(false)
   const search_params = useSearchParams()
   const email = search_params.get("email")
@@ -90,6 +90,15 @@ export default function EnterPasswordResetPage() {
         </div>
       </form>
     </div>
+  )
+}
+
+export default function LogInPage() {
+  return (
+      // Wrapping the LogInForm with Suspense
+      <Suspense >
+          <EnterPasswordResetForm />
+      </Suspense>
   )
 }
 
