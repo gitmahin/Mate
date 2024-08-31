@@ -56,11 +56,14 @@ export async function POST(request: NextRequest) {
                         usernames: user_existed.username
                     }
                     
+                    if(!tokenData || !additional_information){
+                        return NextResponse.json({ error: "Nothing", success: false }, { status: 400 })
+                    }
 
-                    const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET || "", { expiresIn: "1h" })
+                    const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, { expiresIn: "1h" })
 
                     // public token is not used in the app yet.
-                    const publicToken = await jwt.sign(additional_information, process.env.TOKEN_SECRET || "")
+                    const publicToken = await jwt.sign(additional_information, process.env.TOKEN_SECRET!)
 
                     const response = NextResponse.json({ message: "User logged in successfully", success: true }, { status: 200 })
 
