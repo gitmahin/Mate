@@ -47,7 +47,6 @@ export interface User extends Document{
     verified_user_to_reset_pass: boolean,
     duration_of_next_reset_pass_request: Date,
     last_password_changed: Date
-
 }
 
 

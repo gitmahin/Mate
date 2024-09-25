@@ -13,7 +13,6 @@ import { api_response } from '@/response/api_response'
 import { elementAnimate } from '@/utils/elementAnimate'
 
 function EnterPasswordForm() {
-
   // getting data from query
   const search_params = useSearchParams()
   const email = search_params.get("email")
@@ -106,8 +105,7 @@ function EnterPasswordForm() {
               <div className="confirm-pass-container">
                 <p>Confirm password</p>
                 <input required type="password" className='sign-up-input' {...register("confirm_password")} />
-                {errors.confirm_password && <span className='error'>{errors.confirm_password.message}</span>}
-
+                
               </div>
 
               {/* submit data to database */}
