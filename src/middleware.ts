@@ -14,7 +14,8 @@ export function middleware(request: NextRequest) {
   }
 
 }
-
+ console.log("good boy")
+ 
 export const config = {
   matcher: [
     '/log-in',
