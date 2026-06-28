@@ -39,17 +39,6 @@ During sign-up, if a user enters their name and email, then navigates to the pas
 ## Chat 
 * aggregation pipeline used.
 
-## More features will be coming soon:
-- Add friend
-- Share your thoughts
-- Add other social links in your profile
-- Profile view
-- Logged in devices
-- Notifications
-- Save loged out accounts in login page
-- And more updates
-- Responsive (currently Mate is not responsive)
-
 Mate's algorithm is standard and secure. 
 The algorithm makes the code easy to understand.
 Algorithm will go live soon once development is completed. 
